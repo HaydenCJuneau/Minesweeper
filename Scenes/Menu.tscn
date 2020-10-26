@@ -1,0 +1,662 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Fonts/machine-gunk-font/MachineGunk-nyqg.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Sprites/minesweeper_14.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/minesweeper_11.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/minesweeper_10.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/minesweeper_15.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/minesweeper_05.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/minesweeper_12.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/minesweeper_13.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/minesweeper_09.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/minesweeper_03.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/minesweeper_02.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/minesweeper_00.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/minesweeper_01.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/minesweeper_06.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/minesweeper_08.png" type="Texture" id=15]
+[ext_resource path="res://Scripts/Menu.cs" type="Script" id=16]
+
+[sub_resource type="DynamicFont" id=1]
+size = 200
+use_mipmaps = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 65
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "BombTile",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "EmptyTile",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "EmptyTile",
+"speed": 5.0
+} ]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 414.021
+margin_top = 128.0
+margin_right = 1502.02
+margin_bottom = 338.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_text = "MINESWEEPER"
+text = "MINESWEEPER"
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayBtn" type="Button" parent="."]
+margin_left = 364.847
+margin_top = 385.0
+margin_right = 684.847
+margin_bottom = 513.0
+custom_fonts/font = SubResource( 2 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsBtn" type="Button" parent="."]
+margin_left = 1068.85
+margin_top = 385.0
+margin_right = 1388.85
+margin_bottom = 513.0
+custom_fonts/font = SubResource( 2 )
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitBtn" type="Button" parent="."]
+margin_left = 716.847
+margin_top = 609.0
+margin_right = 1036.85
+margin_bottom = 737.0
+custom_fonts/font = SubResource( 2 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackroundDec" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="DecBomb" type="AnimatedSprite" parent="BackroundDec"]
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "BombTile"
+centered = false
+
+[node name="DecBomb2" type="AnimatedSprite" parent="BackroundDec"]
+position = Vector2( 0, 640 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "BombTile"
+frame = 1
+centered = false
+
+[node name="DecBomb3" type="AnimatedSprite" parent="BackroundDec"]
+position = Vector2( 768, 0 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "BombTile"
+centered = false
+
+[node name="DecBomb4" type="AnimatedSprite" parent="BackroundDec"]
+position = Vector2( 1536, 0 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "BombTile"
+centered = false
+
+[node name="DecBomb5" type="AnimatedSprite" parent="BackroundDec"]
+position = Vector2( 1792, 256 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "BombTile"
+frame = 1
+centered = false
+
+[node name="DecBomb6" type="AnimatedSprite" parent="BackroundDec"]
+position = Vector2( 1664, 512 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "BombTile"
+centered = false
+
+[node name="DecBomb7" type="AnimatedSprite" parent="BackroundDec"]
+position = Vector2( 128, 896 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "BombTile"
+frame = 1
+centered = false
+
+[node name="DecBomb8" type="AnimatedSprite" parent="BackroundDec"]
+position = Vector2( 1152, 896 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "BombTile"
+frame = 1
+centered = false
+
+[node name="DecFlag" type="AnimatedSprite" parent="BackroundDec"]
+position = Vector2( 0, 128 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 4 )
+animation = "EmptyTile"
+frame = 2
+centered = false
+
+[node name="DecFlag2" type="AnimatedSprite" parent="BackroundDec"]
+position = Vector2( 384, 768 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 4 )
+animation = "EmptyTile"
+frame = 2
+centered = false
+
+[node name="DecFlag3" type="AnimatedSprite" parent="BackroundDec"]
+position = Vector2( 1536, 384 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 4 )
+animation = "EmptyTile"
+frame = 2
+centered = false
+
+[node name="DecFlag4" type="AnimatedSprite" parent="BackroundDec"]
+position = Vector2( 1408, 768 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 4 )
+animation = "EmptyTile"
+frame = 2
+centered = false
+
+[node name="DecNumLayer" type="CanvasLayer" parent="BackroundDec"]
+layer = -1
+
+[node name="DecNum" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 128, 129 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 5
+centered = false
+
+[node name="DecNum2" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 768, 128 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum3" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 0, 256 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum4" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 128, 256 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum5" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 640, 0 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum6" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 640, 129 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum7" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 896, 0 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum8" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 896, 129 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum13" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1408, 257 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum14" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 256, 768 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 5
+centered = false
+
+[node name="DecNum15" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 512, 768 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum16" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 256, 640 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum17" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 384, 640 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum18" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 512, 640 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum19" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 512, 896 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum20" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 384, 896 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum22" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 128, 640 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum23" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 0, 512 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum24" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 128, 512 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum25" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 128, 768 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 5
+centered = false
+
+[node name="DecNum26" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 0, 768 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 5
+centered = false
+
+[node name="DecNum27" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 0, 896 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum28" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 256, 896 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 5
+centered = false
+
+[node name="DecNum30" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1024, 768 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum31" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1024, 896 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum32" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1152, 768 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum33" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1280, 768 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 5
+centered = false
+
+[node name="DecNum34" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1280, 896 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 5
+centered = false
+
+[node name="DecNum35" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1280, 640 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum36" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1408, 896 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum37" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1536, 896 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum38" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1536, 512 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 5
+centered = false
+
+[node name="DecNum39" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1536, 768 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum40" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1664, 640 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum41" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1536, 640 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 5
+centered = false
+
+[node name="DecNum42" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1536, 257 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum43" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1664, 385 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 6
+centered = false
+
+[node name="DecNum44" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1792, 640 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum45" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1792, 512 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum46" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1792, 384 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 5
+centered = false
+
+[node name="DecNum47" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1664, 256 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 5
+centered = false
+
+[node name="DecNum48" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1664, 128 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 5
+centered = false
+
+[node name="DecNum49" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1792, 128 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum50" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1664, 0 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum51" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1536, 128 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum52" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1408, 128 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum53" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1408, 0 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum55" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1408, 512 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum56" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1408, 385 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum57" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 128, 0 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 5
+centered = false
+
+[node name="DecNum58" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1408, 641 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum59" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 256, 1024 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum60" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 128, 1024 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum61" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 0, 1024 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum62" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1280, 1024 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum63" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1152, 1024 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+
+[node name="DecNum64" type="AnimatedSprite" parent="BackroundDec/DecNumLayer"]
+position = Vector2( 1024, 1024 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "EmptyTile"
+frame = 4
+centered = false
+[connection signal="pressed" from="PlayBtn" to="." method="Play"]
+[connection signal="pressed" from="SettingsBtn" to="." method="Settings"]
+[connection signal="pressed" from="QuitBtn" to="." method="Quit"]
