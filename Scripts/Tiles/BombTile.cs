@@ -5,7 +5,7 @@ public class BombTile : Tile, IBomb, ITile
 {
     public void TilePressed()
     {
-        if(SpawnerNode.Game.State == GameState.Current)
+        if(GameNode.State == GameState.Current)
         {
             if(Input.IsActionJustPressed("LeftClick"))
             {   if(State == TileState.Default)
@@ -23,7 +23,7 @@ public class BombTile : Tile, IBomb, ITile
     {
         State = TileState.Clicked;
         Frame = 4;
-        SpawnerNode.EndGameLose();
+        ControllerNode.EndGameLose();
     }
 
     public void EndGameReveal()

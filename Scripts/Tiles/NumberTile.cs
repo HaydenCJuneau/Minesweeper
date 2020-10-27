@@ -6,7 +6,7 @@ public class NumberTile : Tile, ITile
 {
     public void TilePressed()
     {
-        if(SpawnerNode.Game.State == GameState.Current)
+        if(GameNode.State == GameState.Current)
         {
             if(Input.IsActionJustPressed("LeftClick"))
             {   if(State == TileState.Default)
@@ -25,7 +25,7 @@ public class NumberTile : Tile, ITile
         if(State != TileState.Clicked)
         {
             State = TileState.Clicked;
-            SpawnerNode.Game.TileClicked();
+            GameNode.TileClicked();
             Frame = GameGlobals.NumFrameMap[Type];
         }
     }

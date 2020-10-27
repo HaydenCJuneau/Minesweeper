@@ -1,22 +1,25 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Controller : Node2D
 {
    //Fields
-   public Game Game;
-   Queue<Vector2> ToReveal = new Queue<Vector2>();
+   private Game Game;
+   private Queue<Vector2> ToReveal;
 
    public override void _Ready()
    {
       Game = GetParent().GetParent() as Game;
-      Game.State = GameState.NoGame;
+      ToReveal = new Queue<Vector2>();
 
+      Game.State = GameState.NoGame;
       Game.CreateNewGameBoard(GameGlobals.newGameRows, GameGlobals.newGameColumns, GameGlobals.newGameBombs);
       DrawBoard();
    }
 
+   //Process is called every frame, right now it is just in charge of revealing anything in the reveal queue
    public override void _Process(float delta)
    {
       if(ToReveal.Count > 0)
@@ -27,16 +30,11 @@ public class Controller : Node2D
       }
    }
 
-   //Board Visualisation Method
+   //This Method takes the list of instructions and draws each tile onto the screen
    public void DrawBoard()
    {
-      var instructions = Game.BoardInstructions;
-      GD.Print("Before loop test");
-      GD.Print(instructions.Count);
-
-      while(instructions.Count > 0)
+      foreach(var tile in Game.BoardInstructions)
       {
-         var tile = instructions.Dequeue();
          var scene = GD.Load<PackedScene>(GameGlobals.ScenePathMap[tile.Type]).Instance();
          AddChild(scene);
          var node = GetNode("NewTile") as AnimatedSprite;
@@ -51,6 +49,8 @@ public class Controller : Node2D
       GD.Print("Finished Drawing New Board");
    }
 
+   //This Method is called when empty tiles are clicked, it searches for other empty or number tiles around itself, then adds them to a queue to be revealed
+   //This creates the effect of clearing a bunch of empty tiles at once. 
    public void QueueEmptyNeighbors(Vector2 pos)
    {
       var vectorQueue = new Vector2();
@@ -69,21 +69,21 @@ public class Controller : Node2D
       }
    }
 
+   //This Method is called at the end of a game, when a bomb is clicked, revealing all bombs
+   //This could be moved to the games logic file. 
    public void EndGameLose()
    {
       Game.State = GameState.GameLost;
 
-      for(var y = 0; y < Game.BoardSize.y-1; y++)
+      var bombTiles = from tile in Game.BoardInstructions
+                      where tile.Type == TileType.Bomb
+                      select tile;
+      
+
+      foreach(var bTile in bombTiles)
       {
-         for(var x = 0; x < Game.BoardSize.x-1; x++)
-         {
-            var Tile = GetNode($"{x},{y}") as Tile;
-            if(Tile is IBomb)
-            {
-               IBomb bT = Tile as IBomb;
-               bT.EndGameReveal();
-            }
-         }
+         var tile = GetNode($"{bTile.Position.x},{bTile.Position.y}") as IBomb;
+         tile.EndGameReveal();
       }
    }
 }

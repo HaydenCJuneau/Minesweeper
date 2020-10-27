@@ -2,6 +2,9 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+//This Singleton file holds the Global class for the game, tracking wins/ lossses.
+//It also takes care of passing data from one script to another.
+
 public static class GameGlobals
 {
     public static int GamesWon;

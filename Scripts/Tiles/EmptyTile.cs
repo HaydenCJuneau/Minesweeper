@@ -5,7 +5,7 @@ public class EmptyTile : Tile, ITile
 {
     public void TilePressed()
     {
-        if(SpawnerNode.Game.State == GameState.Current)
+        if(GameNode.State == GameState.Current)
         {
             if(Input.IsActionJustPressed("LeftClick"))
             {   if(State == TileState.Default)
@@ -25,10 +25,9 @@ public class EmptyTile : Tile, ITile
         {
         State = TileState.Clicked;
         Frame = 1;
-        SpawnerNode.Game.TileClicked();
+        GameNode.TileClicked();
         //Reveals any empty tiles around this one
-        SpawnerNode.QueueEmptyNeighbors(Position/32);
+        ControllerNode.QueueEmptyNeighbors(Position/32);
         }
     }
 }
-    

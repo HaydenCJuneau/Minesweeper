@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+//TileStructs are used as instructions for the controller, where and what to place. 
 public struct TileStruct
 {
     public Vector2 Position {get; private set;}

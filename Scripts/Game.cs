@@ -15,7 +15,7 @@ public class Game : Node2D
    Button ReplayButton;
    public GameState State { get; set; }
    public Vector2 BoardSize { get; private set; }
-   public Queue<TileStruct> BoardInstructions { get; private set; }
+   public List<TileStruct> BoardInstructions { get; private set; }
    public Grid BoardGrid { get; private set; }
    public int CurrentBombs { get; set; }
    public int UnclearTiles { get; set; }
@@ -135,13 +135,13 @@ public class Game : Node2D
       }
 
       //Step 4 is to fill in created data
-      BoardInstructions = new Queue<TileStruct> ();
+      BoardInstructions = new List<TileStruct>();
 
       for(var y = 0; y < rows; y++)  
       {
          for(var x = 0; x < columns; x++)
          {
-            BoardInstructions.Enqueue(new TileStruct(x,y,BoardGrid.Read(x,y)));
+            BoardInstructions.Add(new TileStruct(x,y,BoardGrid.Read(x,y)));
          }
       }
       
