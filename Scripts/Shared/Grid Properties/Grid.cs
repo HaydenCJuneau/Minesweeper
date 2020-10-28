@@ -1,21 +1,23 @@
 using Godot;
 using System;
 
+//This Struct is a 3d array that represents a game board in numbers, it can be indexed into
+//and holds numbers to represent types of tiles. 
 public struct Grid 
 {
-    public int[,] grid {get; private set;}
-    public int Rows;
-    public int Columns;
-
+    private int[,] Array;
+    private int Rows;
+    private int Columns;
     public Vector2 Size {get; private set;}
 
+    //Constructor for the grid
     public Grid(int rows, int columns)
     {
         Rows = rows;
         Columns = columns;
         Size = new Vector2(columns,rows);
 
-        grid = new int[rows,columns]; 
+        Array = new int[rows,columns]; 
         //These arrays act in y,x 
 
         //These loops fill the grid full of zeroes
@@ -32,20 +34,20 @@ public struct Grid
     public int Read(int x, int y)
     {
         if(!OutOfBounds(x,y))
-            return grid[y,x];
+            return Array[y,x];
         return -2; //For now, negaive two will serve as an out of bounds exception
     }
 
     public void Write(int x, int y, int value)
     {
         if(!OutOfBounds(x,y))
-            grid[Convert.ToInt32(y),Convert.ToInt32(x)] = value;
+            Array[Convert.ToInt32(y),Convert.ToInt32(x)] = value;
     }
 
     public void Add(int x, int y, int value)
     {
         if(!OutOfBounds(x,y))
-            grid[Convert.ToInt32(y),Convert.ToInt32(x)] += value;
+            Array[Convert.ToInt32(y),Convert.ToInt32(x)] += value;
     }
 
     public bool OutOfBounds(int x, int y)

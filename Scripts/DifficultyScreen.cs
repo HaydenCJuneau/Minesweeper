@@ -12,6 +12,7 @@ public class DifficultyScreen : Control
     Button playButton;
     Label selLabel;
 
+    //This button is not a node itself, but rather a data type to track what node is selected. 
     Button currentlyPressed;
 
     //Value fields
@@ -47,7 +48,6 @@ public class DifficultyScreen : Control
     }
 
     //Button signals
-
     public void Play()
     {
         SetGameGlobals();

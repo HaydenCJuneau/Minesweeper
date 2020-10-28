@@ -74,15 +74,15 @@ public class Controller : Node2D
    public void EndGameLose()
    {
       Game.State = GameState.GameLost;
-
-      var bombTiles = from tile in Game.BoardInstructions
-                      where tile.Type == TileType.Bomb
-                      select tile;
-      
-
+      //Query out all Bomb tiles in instructions list
+      var bombTiles = 
+      from tile in Game.BoardInstructions
+      where tile.Type == TileType.Bomb
+      select tile;
+   
       foreach(var bTile in bombTiles)
       {
-         var tile = GetNode($"{bTile.Position.x},{bTile.Position.y}") as IBomb;
+         var tile = GetNode($"{bTile.Index.x},{bTile.Index.y}") as IBomb;
          tile.EndGameReveal();
       }
    }
