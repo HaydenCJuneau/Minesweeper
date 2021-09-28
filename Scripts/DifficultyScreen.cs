@@ -66,9 +66,9 @@ public class DifficultyScreen : Control
             ClearSelections();
             currentlyPressed = easyButton;
             selLabel.Text = "Selected: Easy";
-            columnsSelected = 15;
-            rowsSelected = 15;
-            bombsSelected = 30;
+            columnsSelected = 9;
+            rowsSelected = 9;
+            bombsSelected = 10;
         }
         else
             currentlyPressed = null;
@@ -81,9 +81,9 @@ public class DifficultyScreen : Control
             ClearSelections();
             currentlyPressed = mediumButton;
             selLabel.Text = "Selected: Medium";
-            columnsSelected = 30;
-            rowsSelected = 30;
-            bombsSelected = 100;
+            columnsSelected = 16;
+            rowsSelected = 16;
+            bombsSelected = 40;
         }
         else
             currentlyPressed = null;
@@ -96,9 +96,9 @@ public class DifficultyScreen : Control
             ClearSelections();
             currentlyPressed = hardButton;
             selLabel.Text = "Selected: Hard";
-            columnsSelected = 40;
-            rowsSelected = 40;
-            bombsSelected = 400;
+            columnsSelected = 16;
+            rowsSelected = 30;
+            bombsSelected = 99;
         }
         else
             currentlyPressed = null;

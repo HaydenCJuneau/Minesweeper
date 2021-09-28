@@ -8,12 +8,15 @@ public class NumberTile : Tile, ITile
     {
         if(GameNode.State == GameState.Current)
         {
-            if(Input.IsActionJustPressed("LeftClick"))
+            if(Input.IsActionJustPressed("LeftClick") && Input.IsActionJustPressed("RightClick"))
+            {
+                //TODO: If both left and right clicks then reveal all unflagged tiles around this one
+            }
+            else if(Input.IsActionJustPressed("LeftClick"))
             {   if(State == TileState.Default)
                  Reveal();
             }
-            
-            if(Input.IsActionJustPressed("RightClick"))
+            else if(Input.IsActionJustPressed("RightClick"))
             {    
                 CycleFrame();
             }

@@ -59,21 +59,22 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.713726, 0.705882, 0.705882, 1 )
 custom_colors/font_color_pressed = Color( 0.286275, 0.286275, 0.286275, 1 )
 toggle_mode = true
-text = "Easy (15x15)"
+text = "Easy (9x9)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MediumSelect" type="Button" parent="."]
+margin_left = 2.37842
 margin_top = 352.0
-margin_right = 480.0
+margin_right = 482.378
 margin_bottom = 480.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.713726, 0.705882, 0.705882, 1 )
 custom_colors/font_color_pressed = Color( 0.286275, 0.286275, 0.286275, 1 )
 toggle_mode = true
-text = "Medium (30x30)"
+text = "Medium (16x16)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -87,7 +88,7 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.713726, 0.705882, 0.705882, 1 )
 custom_colors/font_color_pressed = Color( 0.286275, 0.286275, 0.286275, 1 )
 toggle_mode = true
-text = "Hard (40x40)"
+text = "Hard (16x30)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
