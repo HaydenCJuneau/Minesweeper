@@ -1,17 +1,30 @@
 using Godot;
 using System;
 
-//This file holds types and interfaces
-public enum TileType {Bomb, Empty, One, Two, Three, Four, Five, Six, Seven, Eight}
-
-public enum TileState {Default, Clicked, Flagged, Questioned, Empty}
-
-public interface IBomb
+//This file holds the enums that represent different types and states of tiles
+/// <summary>
+/// The type of tile
+/// </summary>
+public enum TileType 
 {
-    void EndGameReveal();
+    Bomb = -1, 
+    Empty = 0, 
+    One = 1, 
+    Two = 2, 
+    Three = 3, 
+    Four = 4, 
+    Five = 5, 
+    Six = 6, 
+    Seven = 7, 
+    Eight = 8
 }
-
-public interface ITile
+/// <summary>
+/// The state of the tile
+/// </summary>
+public enum TileState 
 {
-    void Reveal();
+    Covered = 0,
+    Questioned = 1,
+    Flagged = 2,
+    Revealed = 3
 }
